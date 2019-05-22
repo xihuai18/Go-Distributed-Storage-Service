@@ -1,0 +1,19 @@
+{
+    "mappings": {
+        "properties": {
+            "name": {
+                "type": "text",
+                "fielddata" : true
+            },
+            "version": {
+                "type": "long"
+            },
+            "size": {
+                "type": "long"
+            },
+            "hash": {
+                "type": "text"
+            }
+        }
+    }
+}
