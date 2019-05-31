@@ -1,3 +1,4 @@
+// 判断对象分片是否本数据服务器，并返回存在与否
 package locate
 
 import (

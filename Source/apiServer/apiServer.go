@@ -14,6 +14,7 @@ import (
 )
 
 func main() {
+	// 根据访问的地址调用不同的程序进行处理
 	go heartbeat.ListenHeartbeat()
 	http.HandleFunc("/objects/", objects.Handler)
 	http.HandleFunc("/temp/", temp.Handler)

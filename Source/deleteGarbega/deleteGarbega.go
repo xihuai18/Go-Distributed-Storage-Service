@@ -1,3 +1,4 @@
+// 删除垃圾桶中的文件
 package main
 
 import (
@@ -19,6 +20,7 @@ func main()  {
 			log.Println(e)
 			return
 		}
+		// 若文件被再次上传，则要将文件移入文件存放的合理位置
 		if !hashInMetadata {
 			os.Remove(files[i])
 		} else {

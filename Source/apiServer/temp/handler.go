@@ -1,3 +1,4 @@
+// 处理临时对象
 package temp
 
 import "net/http"

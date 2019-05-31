@@ -1,3 +1,4 @@
+// 命令行实用工具
 package main
 
 import (
@@ -6,7 +7,6 @@ import (
 	"os/exec"
 	"crypto/sha256"
 	"io"
-	// "io/ioutil"
 	"os"
 	"encoding/base64"
 	"time"
@@ -137,12 +137,6 @@ func main() {
 				tree.Insert(objs[i])
 			}
 			suffix := tree.AllStartWith(answers.FileName)
-			// name := "lookup.txt"
-			// err = ioutil.WriteFile(name, []byte(strings.Join(suffix, "\n")), 0666)
-			// if err != nil{
-			// 	fmt.Println(err.Error())
-			// 	return 
-			// }
 			fmt.Println("look up result: \n"+strings.Join(suffix, "\n")+"\n")
 
 		default:

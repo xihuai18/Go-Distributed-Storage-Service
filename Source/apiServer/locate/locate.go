@@ -1,3 +1,4 @@
+// 定位对象文件所在的数据服务器
 package locate
 
 import (
@@ -9,6 +10,7 @@ import (
 	"time"
 )
 
+// 向消息队列发布定位请求
 func Locate(name string) (locateInfo map[int]string) {
 	q := rabbitmq.New(os.Getenv("RABBITMQ_SERVER"))
 	q.Publish("dataServers", name)

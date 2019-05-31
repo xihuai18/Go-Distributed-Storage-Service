@@ -1,3 +1,4 @@
+// 对对象的不同操作，调用不同的函数
 package objects
 
 import "net/http"

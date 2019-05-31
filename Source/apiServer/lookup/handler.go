@@ -1,9 +1,9 @@
+// 查询，读取全部文件的名字，返回
 package lookup
 
 import (
 	"net/http"
 	"strings"
-	// "encoding/json"
 	"lib/es"
 	"log"
 	"io"

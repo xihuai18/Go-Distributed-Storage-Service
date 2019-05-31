@@ -4,6 +4,7 @@ import (
 	"math/rand"
 )
 
+// 返回多个随机数据结点
 func ChooseRandomDataServers(n int, exclude map[int]string) (ds []string) {
 	candidates := make([]string, 0)
 	reverseExcludeMap := make(map[string]int)

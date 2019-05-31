@@ -1,3 +1,4 @@
+// 定时向消息队列发送消息报告数据服务器正常服务
 package heartbeat
 
 import (

@@ -1,3 +1,4 @@
+// 流式读取数据
 package objects
 
 import (

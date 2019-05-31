@@ -1,3 +1,4 @@
+// 缓存，检测对象哈希值
 package objects
 
 import (

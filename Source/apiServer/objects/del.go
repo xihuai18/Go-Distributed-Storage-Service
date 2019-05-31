@@ -1,3 +1,4 @@
+// 远程删除对象
 package objects
 
 import (

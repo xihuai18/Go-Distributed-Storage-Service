@@ -1,3 +1,4 @@
+// 根据请求类型调用函数
 package objects
 
 import (

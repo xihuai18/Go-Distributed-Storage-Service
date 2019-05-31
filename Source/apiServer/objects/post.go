@@ -1,3 +1,4 @@
+// 将对象切片并分配到不同数据服务器的随机组合
 package objects
 
 import (

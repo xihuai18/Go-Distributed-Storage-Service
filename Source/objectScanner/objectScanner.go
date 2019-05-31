@@ -1,3 +1,4 @@
+// 扫描数据服务器的存储文件夹，修复文件
 package main
 
 import (

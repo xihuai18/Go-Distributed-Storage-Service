@@ -1,3 +1,4 @@
+// 当接口服务器验证了哈希值正确之后提交文件
 package temp
 
 import (

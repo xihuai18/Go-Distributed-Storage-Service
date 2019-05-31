@@ -1,3 +1,4 @@
+// 压缩之后再传输文件
 package objects
 
 import (

@@ -1,3 +1,4 @@
+// 删除超出版本数的元数据
 package main
 
 import (

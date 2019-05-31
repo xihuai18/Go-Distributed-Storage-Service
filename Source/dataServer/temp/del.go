@@ -1,3 +1,4 @@
+// 将哈希值不匹配的文件移除
 package temp
 
 import (

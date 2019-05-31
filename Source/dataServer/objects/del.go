@@ -1,3 +1,4 @@
+// 将数据分片移入垃圾桶
 package objects
 
 import (

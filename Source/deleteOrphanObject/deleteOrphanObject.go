@@ -1,3 +1,4 @@
+// “删除”无元数据引用的对象数据
 package main
 
 import (
