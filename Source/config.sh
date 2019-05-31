@@ -24,5 +24,5 @@ ifconfig wlp3s0:7 127.0.2.1
 ifconfig wlp3s0:8 127.0.2.2
 
 # setup metadata server
-# curl localhost:9200/metadata -XPUT -H "content-type: application/JSON" -d @mapping.json
+curl localhost:9200/metadata -XPUT -H "content-type: application/JSON" -d @mapping.json
 

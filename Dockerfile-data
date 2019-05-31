@@ -1,0 +1,27 @@
+FROM ubuntu-golang:py3
+
+# RUN mkdir $GOPATH/Source
+COPY ./go/ $GOPATH/
+COPY ./Source/ $GOPATH/Source/
+WORKDIR $GOPATH/Source
+
+RUN mkdir -p /tmp/objects \
+ && mkdir -p /tmp/temp \
+ && mkdir -p /tmp/garbage
+
+
+# CMD service rabbitmq-server restart \
+#  && rabbitmq-plugins enable rabbitmq_management \
+#  && wget localhost:15672/cli/rabbitmqadmin \
+#  && python3 rabbitmqadmin declare exchange name=apiServers type=fanout \
+#  && python3 rabbitmqadmin declare exchange name=dataServers type=fanout \
+#  && rabbitmqctl add_user test test \
+#  && rabbitmqctl set_permissions -p / test ".*"  ".*" ".*" \
+CMD echo "dataServer start" \
+ && LISTEN_ADDRESS=data1:12345 \
+ && STORAGE_ROOT=/tmp/ \
+ && export RABBITMQ_SERVER=amqp://test:test@mq:5672 \
+ && export ES_SERVER=es:9200 \
+ && go run ./dataServer/dataServer.go
+
+EXPOSE 12344

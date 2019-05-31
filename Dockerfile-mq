@@ -1,0 +1,12 @@
+FROM ubuntu-golang:py3
+
+CMD service rabbitmq-server restart \
+ && rabbitmq-plugins enable rabbitmq_management \
+ && wget localhost:15672/cli/rabbitmqadmin \
+ && python3 rabbitmqadmin declare exchange name=apiServers type=fanout \
+ && python3 rabbitmqadmin declare exchange name=dataServers type=fanout \
+ && rabbitmqctl add_user test test \
+ && rabbitmqctl set_permissions -p / test ".*"  ".*" ".*" \
+ && /bin/sh -c "while true; do sleep 2; done"
+
+EXPOSE 5672

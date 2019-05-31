@@ -1,0 +1,43 @@
+FROM ubuntu-golang:es
+
+# COPY ./Source/ $GOPATH/Source/
+WORKDIR $GOPATH/Source/
+
+# RUN apt-get install curl -y
+# RUN useradd -m test && echo "test:test" | chpasswd && adduser test sudo
+# RUN echo "network.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
+# RUN echo "http.host: 0.0.0.0" >> /etc/elasticsearch/elasticsearch.yml
+
+# RUN apt-get install rabbitmq-server -y
+USER test
+# RUN apt-get install sudo
+
+# RUN dpkg -i elasticsearch-7.1.1-amd64.deb \
+#  && mkdir /usr/lib/jvm/ \
+#  && tar zxvf jdk1.8.0_211.tar.gz -C /usr/lib/jvm/ \
+ # && rm jdk1.8.0_211.tar.gz \
+ # && rm elasticsearch-7.1.1-amd64.deb
+
+# RUN rm jdk1.8.0_211.tar.gz \
+
+# RUN ln -s /usr/lib/jvm/jdk1.8.0_211/bin/java /usr/bin/java
+
+# RUN echo 'export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_211"' >> ~/.bashrc \
+#  && echo 'export JRE_HOME=${JAVA_HOME}/jre' >> ~/.bashrc \
+#  && echo 'export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib' >> ~/.bashrc \
+#  && echo 'export PATH=${JAVA_HOME}/bin:$PATH' >> ~/.bashrc
+
+# USER test
+
+# CMD /usr/share/elasticsearch/bin/elasticsearch
+
+
+
+CMD sudo service elasticsearch start \
+ && sudo service elasticsearch status \
+ && echo "metadataServer start" \
+ && sleep 20 \
+ && curl 127.0.0.1:9200/metadata -XPUT -H "content-type: application/JSON" -d @mapping.json \
+ && /bin/sh -c "while true; do sleep 2; done"
+
+EXPOSE 9200

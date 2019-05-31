@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"sync"
 	"time"
+	"fmt"
 )
 
 var dataServers = make(map[string]time.Time)
@@ -47,6 +48,9 @@ func GetDataServers() []string {
 	ds := make([]string, 0)
 	for s, _ := range dataServers {
 		ds = append(ds, s)
+	}
+	for i := range ds {
+		fmt.Println(ds[i])	
 	}
 	return ds
 }
