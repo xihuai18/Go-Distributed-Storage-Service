@@ -1,28 +1,28 @@
 FROM ubuntu-golang:py3
 
-# RUN mkdir $GOPATH/Source
-# COPY ./go/ $GOPATH/
+RUN mkdir $GOPATH/Source
+COPY ./go/ $GOPATH/
 COPY ./Source/ $GOPATH/Source/
 WORKDIR $GOPATH/Source
-# RUN    mkdir -p /tmp/1/objects \
-#     && mkdir -p /tmp/1/temp \
-#     && mkdir -p /tmp/1/garbage
+RUN    mkdir -p /tmp/1/objects \
+    && mkdir -p /tmp/1/temp \
+    && mkdir -p /tmp/1/garbage
 
-# COPY ./sources.list /etc/apt/sources.list
-# RUN apt-get update
-# RUN apt-get install -y python3
-# RUN apt-get install -y apt-utils
-# RUN apt-get install -y curl
-# RUN apt-get install erlang -y
-# RUN apt-get install rabbitmq-server -y
+COPY ./sources.list /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install -y python3
+RUN apt-get install -y apt-utils
+RUN apt-get install -y curl
+RUN apt-get install erlang -y
+RUN apt-get install rabbitmq-server -y
 
-# CMD service rabbitmq-server restart \
-#  && rabbitmq-plugins enable rabbitmq_management \
-#  && wget localhost:15672/cli/rabbitmqadmin \
-#  && python3 rabbitmqadmin declare exchange name=apiServers type=fanout \
-#  && python3 rabbitmqadmin declare exchange name=dataServers type=fanout \
-#  && rabbitmqctl add_user test test \
-#  && rabbitmqctl set_permissions -p / test ".*"  ".*" ".*" \
+CMD service rabbitmq-server restart \
+ && rabbitmq-plugins enable rabbitmq_management \
+ && wget localhost:15672/cli/rabbitmqadmin \
+ && python3 rabbitmqadmin declare exchange name=apiServers type=fanout \
+ && python3 rabbitmqadmin declare exchange name=dataServers type=fanout \
+ && rabbitmqctl add_user test test \
+ && rabbitmqctl set_permissions -p / test ".*"  ".*" ".*" \
  CMD echo "apiServer start" \
  && export RABBITMQ_SERVER=amqp://test:test@mq:5672 \
  && export ES_SERVER=es:9200 \
